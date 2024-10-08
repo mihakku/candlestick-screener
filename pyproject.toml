@@ -1,16 +1,19 @@
 [tool.poetry]
-name = "sample-project"
+name = "candlestick-screener"
 version = "0.1.0"
 description = ""
-authors = ["Author Name <author@example.com>"]
-# readme = "README.md"
-# license = "BSD"
-packages = [
-  { include = "sample_package" }
-]
+authors = ["Michael Hack <mihakku@gmail.com>"]
+readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
+flask = "^3.0.3"
+ta-lib = "^0.4.32"
+pandas = "^2.2.3"
+numpy = "1.26.4"
+yfinance = "^0.2.44"
+
 
 [build-system]
 requires = ["poetry-core"]

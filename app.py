@@ -2,7 +2,8 @@ import os, csv
 import talib
 import yfinance as yf
 import pandas
-from flask import Flask, escape, request, render_template
+from flask import Flask, request, render_template
+from markupsafe import escape
 from patterns import candlestick_patterns
 
 app = Flask(__name__)
@@ -50,3 +51,7 @@ def index():
                 print('failed on filename: ', filename)
 
     return render_template('index.html', candlestick_patterns=candlestick_patterns, stocks=stocks, pattern=pattern)
+
+# IMPORTANT: has to be put after the routes are registered, otherwise 404 will be returned
+if __name__ == '__main__':
+    app.run(debug=True, port=8001)
